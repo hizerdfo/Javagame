@@ -1,17 +1,35 @@
 package com.javacoding.game;
 
 public class Kinoko {
-    int hp;
-    final int LEVEL = 10;
-    char suffix; //구분을 위하여 사용한다.
-    Kinoko(){
+    private final int LEVEL = 10;
+    
+    private int hp = 50;
+    protected char suffix;
+    
+    public Kinoko(char suffix) {
+        this.suffix = suffix;
+    }
+    
+    public void attack(Hero hero) {
+        System.out.println("키노코" + this.suffix + " 의 공격");
+        System.out.println("10의 데미지");
+        hero.setHp(hero.getHp() - 10);
+    }
+    public Kinoko(){
         
     }
-    Kinoko(int hp){
-        this.hp = hp;
+    public Kinoko(int hp){
+        this.setHp(hp);
     }
-    void attack() {}
-    void run() {
+    public void run() {
         System.out.println("괴물 버섯 " + this.suffix + "는 도망갔다!");
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 }
